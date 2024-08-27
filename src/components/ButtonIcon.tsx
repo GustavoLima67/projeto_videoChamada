@@ -1,32 +1,40 @@
-import { FaGithub } from "react-icons/fa";
+import { FaBullseye, FaGithub } from "react-icons/fa";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { SlPeople } from "react-icons/sl";
+import "@/app/styles.css"
 
 type Props = {
-    to: string;
-    externo: boolean;
-    children: string; 
-    onClick: () => void;
+    label: string;
 }
 
-export const ButtonIcon = ({to, externo,  children, onClick} : Props) => {
+export const ButtonIcon = () => {
 
+    const [showSecret, setShowSecret] = useState(false);
 
-    const [buttonIcon, setbuttonIcon] = useState();
+    const handleButtomClick = () => {setShowSecret(!showSecret);}
 
-    const handleButtonClick = () => onClick();
-
-    const linkUniversal = () => {
-        if(externo) { 
-            setbuttonIcon(buttonIcon &&  <a href={to} target="_blank" rel="noopener noreferrer" >{children}</a>);
-           
-        }
-        <Link to={to}>{children}</Link>
-    }
+    const linkColaborator1 = () => window.open("https://github.com/lucas3147");
+    const linkColaborator2 = () => window.open("https://github.com/GustavoLima67");
 
     return (
         <div className="container-icon">
-            <button className="icon" onClick={linkUniversal}><FaGithub/></button>
+            <button className="icon" onClick={handleButtomClick}><FaGithub/></button>
+
+            <div className="names-colaborators">
+                <div className="colaborator-lucas">
+                    <button onClick={linkColaborator1} className="icon-lucas"> {showSecret ? <SlPeople/> : ""} </button>
+                    {showSecret && 
+                        <div><h1 className="name-lucas">Dev Lucas</h1></div>
+                    }
+                </div>
+                <div className="colaborator-gustavo">
+                    <button onClick={linkColaborator2} className="icon-gustavo"> {showSecret ?   <SlPeople/> : ""} </button>
+                    {showSecret && 
+                        <div> <h1 className="name-gustavo">Dev Gustavo</h1> </div>
+                    }
+                </div>
+                
+            </div>
         </div>
     )
 }
