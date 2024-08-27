@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CustomButton } from "@/components/CustomButton";
-import "@/app/styles.css"
+import "@/styles/styles.css"
 import { FaGithub } from "react-icons/fa";
 import { ButtonIcon } from "@/components/ButtonIcon";
 

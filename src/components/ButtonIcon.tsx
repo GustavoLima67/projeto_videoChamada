@@ -1,7 +1,7 @@
 import { FaBullseye, FaGithub } from "react-icons/fa";
 import React, { useState } from "react";
 import { SlPeople } from "react-icons/sl";
-import "@/app/styles.css"
+import "@/styles/styles.css"
 
 type Props = {
     label: string;

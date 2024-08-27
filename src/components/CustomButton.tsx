@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import "@/app/styles.css";
+import "@/styles/stylesSalas.css";
 
 type Props = {
     label: string;
